@@ -1,0 +1,7 @@
+@@include('jq-start.js')
+@@include('script.js')
+@@include('forms.js')
+@@include('map.js')
+@@include('jq-end.js')
+@@include('plugins.js')
+@@include('responsive.js')

@@ -1,0 +1,224 @@
+//=================================================================================================
+.header {
+	padding: 29px 0 33px 0;
+	background: #fff;
+	// .header__container
+	@media (max-width: $md2+px) {
+		padding: 5px 0 5px 0;
+	}
+	&__container {
+		padding: 0 10px;
+	}
+}
+.header-top {
+	@include flexbox();
+	justify-content: space-between;
+	@media (max-width: $md2+px) {
+		justify-content: flex-end;
+		padding: 25px 0 0 0;
+	}
+	@media (max-width: $md3+px) {
+		padding: 15px 0 0 0;
+	}
+	// .header-top__link
+
+	&__link {
+		color: #000;
+		font-family: 'Akzidenz';
+		text-transform: uppercase;
+		text-decoration: underline;
+		font-size: 15px;
+		font-weight: 700;
+		position: relative;
+		z-index: 10;
+		@media (max-width: $md3+px) {
+			font-size: 13px;
+		}
+	}
+}
+.header-top-lang {
+	// .header-top-lang__item
+	@include flexbox();
+	@media (max-width: $md2+px) {
+		margin: 0 0 15px 0;
+	}
+	&__item {
+		display: block;
+		line-height: 19px;
+		color: #000;
+		font-size: 14px;
+		text-transform: uppercase;
+		font-family: Bebas;
+		letter-spacing: 1px;
+		padding: 0 4px;
+		margin: 0 10px 0 0;
+		font-weight: 700;
+		&.active {
+			color: #fff;
+			background: #000;
+		}
+	}
+}
+.header-bottom {
+	@include flexbox();
+	margin: -10px 0 0 0;
+	align-items: center;
+	// .header-bottom__column
+	@media (max-width: $md2+px) {
+		margin: -37px 0 0 0;	
+	}
+	@media (max-width: $md3+px) {
+		margin: -27px 0 0 0;	
+	}
+	&__column {
+		flex: 0 0 33.333%;
+	}
+}
+.header-bottom-menu {
+	&_right {
+		.header-bottom-menu-list {
+			margin: 0;
+			text-align: right;
+			display: flex;
+			justify-content: flex-end;
+			li {
+				margin: 0 0 0 45px !important;
+				&:first-child {
+					margin: 0;
+				}
+				@media (max-width: $md1+px) {
+					margin: 0 0 0 20px !important;
+				}
+			}
+			@media (max-width: $md2+px) {
+				display: block;
+				text-align: left;
+				li {
+					margin: 0 0 15px 0 !important;
+					&:last-child {margin: 0;}
+				}
+			}
+		}
+	}
+}
+.header-bottom-menu-list {
+	@include flexbox();
+	li {margin: 0 45px 0 0;
+		&:last-child {margin: 0;}
+		@media (max-width: $md1+px) {
+			margin: 0 20px 0 0;
+		}
+	}
+	@media (max-width: $md2+px) {
+		display: block;
+		li {
+			margin: 0 0 15px 0 !important;
+			&:last-child {margin: 0;}
+		}
+	}
+}
+.header-bootom-menu {
+
+	// .header-bootom-menu__link
+
+	&__link {
+		font-family: 'Akzidenz';
+		font-size: 15px;
+		color: #000;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		font-weight: 700;
+	}
+}
+.header-logo {
+	display: block;
+	text-align: center;
+	position: relative;
+	z-index: 10;
+	// .header-logo__text
+
+	&__text {
+		display: block;
+		font-family: 'Akzidenz';
+		font-size: 10px;
+		color: #000;
+		text-transform: uppercase;
+		letter-spacing: 8px;
+		margin-left: 6px;
+		font-weight: 700;
+		@media (max-width: $md2+px) {
+			font-size: 8px;
+		}
+		@media (max-width: $md3+px) {
+			letter-spacing: 5px;
+		}
+	}
+
+	// .header-logo__image
+
+	&__image {
+		display: inline-block;
+		margin: 13px 0 22px 0;
+		@media (max-width: $md2+px) {
+			margin: 2px 0 8px 0;
+			img {
+				width: 150px;
+			}
+		}
+		@media (max-width: $md3+px) {
+			margin: 0 0 2px 0;
+			img {
+				width: 100px;
+			}
+		}
+	}
+}
+
+
+//=================================================================================================
+
+.header-menu__icon {display: none;}
+@media (max-width: $md2+px) {
+	.header-menu__icon {
+		display: block;
+		position: absolute;
+		top: 18px;
+		left: 10px;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span{
+			@include anim(0.3s,0s);
+			top: 8px;
+			left: 0;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+			&:first-child{top: 0;}
+			&:last-child{top: auto;bottom: 0px;}
+		}
+		&.active{
+			span{@include scale(0);
+				&:first-child{@include rotate(-45deg);top: 8px;}
+				&:last-child{@include rotate(45deg);bottom: 8px;}
+			}
+		}
+	}
+	.header-menu {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: -120%;
+		top: 0;
+		background: #fff;
+		padding: 50px 10px 20px 10px;
+		@include anim(0.6s, 0s);
+		z-index: 1;
+		&.active {
+			overflow: auto;
+			left: 0;
+		} 
+	}
+}
